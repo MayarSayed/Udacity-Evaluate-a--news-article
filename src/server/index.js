@@ -52,7 +52,7 @@ app.post('/add-url', async (req, res) => {
        confidence : data.confidence,
        irony : data.irony
      };
-     
+     console.log(sample);
      res.send(sample);
      console.log(sample);
     } catch (error) {

@@ -22,6 +22,8 @@ const UIirony  = document.getElementById("irony");
 const UIscore_tag  = document.getElementById("score_tag");
 
 const handleSubmit = async () => {
+    //event.preventDefault()
+
     /**
      * TODO
      *  - Get Value of the input for URL
@@ -32,13 +34,12 @@ const handleSubmit = async () => {
      *          show user message it's not valid URL
      */
     let url = document.getElementById("article-url").value;
-    console.log(inputUrl);
-    
+    console.log(url);
     const data = await post('http://localhost:8081/add-url', { url }).then((data) =>{
         console.log("update url");
         console.log(data);
         alert("something happen");
-          UItext.innerHTML = "data.text";
+          UItext.innerHTML = data.text;
           UIagreement.innerHTML = data.agreement;
           UIsubjectivity.innerHTML = data.subjectivity;
           UIconfidence.innerHTML = data.confidence;
