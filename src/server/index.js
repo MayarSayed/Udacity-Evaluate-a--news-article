@@ -1,4 +1,5 @@
 // TODO: Configure the environment variables
+const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 const mockAPIResponse = require('./mockAPI.js')
@@ -22,8 +23,8 @@ app.use(bodyParser.json());
 // TODO: Configure express static directory.
 app.use(express.static('dist'));
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
-    //res.sendFile(path.resolve('src/client/views/index.html'))
+    // res.sendFile('dist/index.html')
+    res.sendFile(path.resolve('src/client/views/index.html'))
 })
 // INFO: a route that handling post request for new URL that coming from the frontend
 app.post('/add-url', async (req, res) => {
@@ -43,7 +44,6 @@ app.post('/add-url', async (req, res) => {
     const request = await fetch(`${BASE_API_URL}?key=${myKeyAPI}&url=${req.body.url}&lang=en`);
     console.log("after fetch");
     const data = await request.json();
-    
      const sample = {
        text: data.sentence_list[0].text,
        score_tag : data.score_tag,
@@ -71,3 +71,4 @@ app.listen(PORT, (error) => {
 })
 
 // TODO: export app to use it in the unit testing
+module.exports = app;

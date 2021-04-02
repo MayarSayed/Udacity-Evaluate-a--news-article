@@ -1,10 +1,17 @@
-// to solve ReferenceError: regeneratorRuntime is not defined
-// https://knowledge.udacity.com/questions/174638
+
+// To solving "ReferenceError: regeneratorRuntime is not defined"
 import 'babel-polyfill'
 
+
 describe('Server Test', () => {
-    // TODO: add your test cases to test server
-    // HINT: Review
-    //  1. https://www.npmjs.com/package/supertest
-    //  2. https://dev.to/nedsoft/testing-nodejs-express-api-with-jest-and-supertest-1km6
+
+    describe('Sample Test', () => {
+
+        it('should test that true === true', () => {
+
+            expect(true).toBe(true);
+
+        })
+    })
+
 })
